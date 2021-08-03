@@ -2,37 +2,48 @@ package com.example;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * A bean that returns a message when you call the {@link #saySomething()} method.
  * <p/>
- * Uses <tt>@Component("myBean")</tt> to register this bean with the name <tt>myBean</tt>
+ * Uses <tt>@Component("myBean")</tt> to register this bean with the message <tt>myBean</tt>
  * that we use in the Camel route to lookup this bean.
  */
+
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
 @Component("beanDatos")
 public class BeanDatos {
 
-    private String name;
+    //@Column(name="message", nullable=true)
+    private String message;
 
-    private String edad;
+    //@Column(name="message", nullable=true)
+    private String internalCode;
 
-    public void setName(String name) {
-        this.name = name;
+    public void beanDatos(String message, String internalCode) {
+        this.message = message;
+        this.internalCode = internalCode;
     }
 
-    public String getName() {
-        return this.name;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public void setEdad(String edad) {
-        this.edad = edad;
+    public String getMessage() {
+        return this.message;
     }
 
-    public String getEdad() {
-        return this.edad;
+    public void setInternalCode(String internalCode) {
+        this.internalCode = internalCode;
+    }
+
+    public String getInternalCode() {
+        return this.internalCode;
     }
     
     public String saludo() {
-        return "Hola " +  this.getName() + " Edad " + this.getEdad();
+        return "Hola " +  this.getMessage() + " InternalCode " + this.getInternalCode();
     }
 
 }
