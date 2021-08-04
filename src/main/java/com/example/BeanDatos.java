@@ -2,8 +2,6 @@ package com.example;
 
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * A bean that returns a message when you call the {@link #saySomething()} method.
  * <p/>
@@ -11,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * that we use in the Camel route to lookup this bean.
  */
 
-@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
 @Component("beanDatos")
 public class BeanDatos {
 

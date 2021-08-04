@@ -5,13 +5,8 @@ import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
 
-import org.apache.camel.model.dataformat.JsonDataFormat;
-import org.apache.camel.model.dataformat.JsonLibrary;
 import org.apache.camel.model.rest.RestBindingMode;
-import org.json.JSONObject;
 import org.apache.camel.Processor;
-
-import java.util.Map;
 
 import org.apache.camel.Exchange;
 
@@ -22,8 +17,6 @@ import org.apache.camel.Exchange;
  */
 @Component
 public class MySpringBootRouter extends RouteBuilder {
-
-    JsonDataFormat jsonDataFormat = new JsonDataFormat(JsonLibrary.Jackson);
 
     @Override
     public void configure() throws Exception {
